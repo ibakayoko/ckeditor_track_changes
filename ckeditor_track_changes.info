@@ -1,0 +1,7 @@
+name = Track Changes
+description = Enables change tracking in CKEditor
+package = User interface
+dependencies[] = ckeditor
+core = 7.x
+files[] = track_changes.module
+package = C4R

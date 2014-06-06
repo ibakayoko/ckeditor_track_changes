@@ -1,0 +1,48 @@
+<?php
+
+ $settings = array(
+    'id' => $GLOBALS["user"]->uid,
+    'name' => $GLOBALS["user"]->name,
+    );
+ 
+ drupal_add_js(array('trackChanges' => $settings), 'setting'); 
+
+function ckeditor_track_changes_ckeditor_plugin()
+{
+    return array(
+        'lite' => array(
+            // Plugin name.
+            'name' => 'lite',
+            // Plugin description - it will be displayed in the plugins management section of the profile settings.
+            'desc' => t('CKeditor Track changes'),
+            // The full path to the CKEditor plugin directory, trailing slash included.
+            'path' => drupal_get_path('module', 'ckeditor_track_changes') . '/lite/',
+            'buttons' => array(
+                'lite_AcceptAll' =>
+                array('label' => 'Accept all changes',
+                    'icon' => 'icons/accept_all.png'
+                ),
+                'lite_RejectAll' =>
+                array('label' => 'Reject all changes',
+                    'icon' => 'icons/reject_all.png'
+                ),
+                'lite_AcceptOne' =>
+                array('label' => 'Accept Change',
+                    'icon' => 'icons/accept_one.png'
+                ),
+                'lite_RejectOne' =>
+                array('label' => 'Reject Change',
+                    'icon' => 'icons/reject_one.png'
+                ),
+                'lite_ToggleShow' =>
+                array('label' => 'Change Show/Hide',
+                    'icon' => 'icons/show_hide.png'
+                ),
+                'lite_ToggleTracking' =>
+                array('label' => 'Track changes ON/OFF',
+                    'icon' => 'icons/track_changes_on_off.png'
+                ),
+            )
+        )
+    );
+}
